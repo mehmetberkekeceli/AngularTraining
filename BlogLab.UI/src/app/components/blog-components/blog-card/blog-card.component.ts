@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Blog } from 'app/models/blog/blog.model';
 
 @Component({
   selector: 'app-blog-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog-card.component.css']
 })
 export class BlogCardComponent {
-
+  @Input() blog: Blog = {} as Blog;
 }

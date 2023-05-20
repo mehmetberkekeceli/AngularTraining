@@ -1,1 +1,38 @@
-<p>blogs works!</p>
+<div class="container">
+    <div class="d-flex justify-content-center">
+      <h1 class="display-4 mt-5">Blogs</h1>
+    </div>
+  </div>
+  
+  <ng-container *ngIf="pagedBlogResult">
+    <div class="container mt-5 blogs" *ngIf="pagedBlogResult.items && pagedBlogResult.items.length > 0">
+      <div class="row row-cols-sm-1 row-cols-md-3 g-5">
+        <div class="col" *ngFor="let blog of pagedBlogResult.items">
+          <app-blog-card [blog]="blog"></app-blog-card>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mt-4" *ngIf="!pagedBlogResult.items || pagedBlogResult.items.length === 0">
+      <div class="d-flex justify-content-center">
+        <h3 class="text-dark">There are no blogs published yet...</h3>
+      </div>
+    </div>
+  
+    <div class="container mt-5" *ngIf="pagedBlogResult.totalCount > 0">
+      <div class="d-flex justify-content-center">
+        <pagination
+          [boundaryLinks]="true"
+          [maxSize]="10"
+          [itemsPerPage]="6"
+          previousText="&lsaquo;"
+          nextText="&rsaquo;"
+          firstText="&laquo;"
+          lastText="&raquo;"
+          [totalItems]="pagedBlogResult.totalCount"
+          (pageChanged)="pageChanged($event)"
+        ></pagination>
+      </div>
+    </div>
+  </ng-container>
+  
