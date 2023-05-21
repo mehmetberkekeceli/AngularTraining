@@ -11,12 +11,12 @@ import { PhotoService } from 'app/services/photo.service';
 })
 export class PhotoAlbumComponent implements OnInit {
 
-  @ViewChild('photoForm') photoForm!: NgForm; // Initialize the property with "!"
-  @ViewChild('photoUploadElement') photoUploadElement!: ElementRef<HTMLInputElement>; // Initialize the property with "!"
+  @ViewChild('photoForm') photoForm!: NgForm;
+  @ViewChild('photoUploadElement') photoUploadElement!: ElementRef<HTMLInputElement>;
 
   photos: Photo[] = [];
   photoFile: any;
-  newPhotoDescription = ''; // Initialize the property with an empty string
+  newPhotoDescription = '';
 
   constructor(
     private photoService: PhotoService,
@@ -55,8 +55,8 @@ export class PhotoAlbumComponent implements OnInit {
     });
   }
 
-  onFileChange(event: Event) { // Specify the type of the event parameter
-    const inputElement = event.target as HTMLInputElement; // Cast the target as HTMLInputElement
+  onFileChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
     if (inputElement.files && inputElement.files.length > 0) {
       const file = inputElement.files[0];
       this.photoFile = file;
