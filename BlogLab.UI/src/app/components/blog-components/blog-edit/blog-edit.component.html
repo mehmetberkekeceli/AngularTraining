@@ -1,1 +1,84 @@
-<p>blog-edit çalışıyor!</p>
+<div class="container">
+
+    <div class="d-flex justify-content-center">
+        <h1 class="display-4 mt-5">{{ isNew() ? 'Blog Oluştur' : 'Blog Düzenle' }}</h1>
+    </div>
+    
+    <a *ngIf="blogForm && blogForm.get('blogId')?.value !== null" routerLink="/blogs/{{blogForm.get('blogId')?.value}}"
+       class="badge rounded-pill bg-primary text-light mb-2 p-2">
+       Blogu Önizle
+    </a>
+    
+    <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    
+        <div class="mb-3">
+            <label for="photo">Fotoğraf</label>
+    
+            <input
+                formControlName="photoDescription"
+                [typeahead]="userPhotos"
+                typeaheadOptionField="description"
+                [typeaheadScrollable]="true"
+                [typeaheadOptionsInScrollableView]="5"
+                (typeaheadOnSelect)="onSelect($event)"
+                placeholder="İsteğe bağlı fotoğraf seçin"
+                class="form-control form-control-lg"
+                id="photo">
+        </div>
+    
+        <div class="mb-3">
+    
+            <label for="title">Başlık</label>
+    
+            <input
+                type="text"
+                [ngClass]="{'is-invalid' : hasErrors('title') && isTouched('title'),
+                            'is-valid' : !hasErrors('title') && isTouched('title')}"
+                class="form-control form-control-lg"
+                formControlName="title"
+                placeholder="Dikkat çekici bir başlık yazın"
+                id="title">
+    
+            <div *ngIf="hasError('title', 'required')" class="invalid-feedback">
+                Başlık gereklidir
+            </div>
+    
+            <div *ngIf="hasError('title', 'minlength') || hasError('title', 'maxlength')" 
+                class="invalid-feedback">
+                10-50 karakter arasında olmalıdır
+            </div>
+        </div>
+    
+        <div class="mb-3">
+    
+            <label for="content">İçerik</label>
+    
+            <textarea
+                [ngClass]="{'is-invalid' : hasErrors('content') && isTouched('content'),
+                            'is-valid' : !hasErrors('content') && isTouched('content')}"
+                class="form-control form-control-lg"
+                formControlName="content"
+                id="content"
+                rows="20"></textarea>
+    
+            <div *ngIf="hasError('content', 'required')" class="invalid-feedback">
+                İçerik gereklidir
+            </div>
+    
+            <div *ngIf="hasError('content', 'minlength') || hasError('content', 'maxlength')" 
+                class="invalid-feedback">
+                300-5000 karakter arasında olmalıdır
+            </div>
+        </div>
+    
+        <button class="btn bg-primary text-light me-2" [disabled]="!blogForm.valid && !!blogForm.pristine">
+            Kaydet
+        </button>
+    
+        <button class="btn btn-danger text-light" *ngIf="blogForm && blogForm.get('photoId')?.value !== null"
+        (click)="detachPhoto()">
+        Fotoğrafı Kaldır
+        </button>
+    
+    </form>
+    </div>

@@ -3,31 +3,31 @@
     <div class="d-flex justify-content-center">
         <h1 class="display-4 mt-5">Gösterge Paneli</h1>
     </div>
-
+    
     <ng-template #noblogs>
-
+    
         <div class="d-flex justify-content-center">
             <h3 class="text-dark mt-3">Henüz blogunuz yok...</h3>
         </div>
-
+    
         <button class="btn btn-lg btn-outline-primary mt-4 mb-4" (click)="createBlog()">
             Yeni Blog
         </button>
-
+    
     </ng-template>
-
+    
     <ng-template [ngIf]="userBlogs.length > 0" [ngIfElse]="noblogs">
         
         <button class="btn btn-lg btn-outline-primary mt-4 mb-4" (click)="createBlog()">
             Yeni Blog
         </button>
-
+    
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Snippet</th>
-                    <th>Action</th>
+                    <th>Başlık</th>
+                    <th>Özet</th>
+                    <th>İşlem</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,32 +40,31 @@
                     </td>
                     <td>
                         <button class="btn btn-info d-inline me-1" (click)="editBlog(userBlog.blogId)">
-                            Edit
+                            Düzenle
                         </button>
-
+    
                         <button 
                             *ngIf="!userBlog.deleteConfirm"
                             class="btn btn-danger d-inline" (click)="confirmDelete(userBlog)">
-                            Delete
+                            Sil
                         </button>
-
+    
                         <div *ngIf="!!userBlog.deleteConfirm">
-                            Sure?
+                            Emin misiniz?
                             
                             <button class="btn btn-link p-1" (click)="deleteConfirmed(userBlog, userBlogs)">
-                                Yes
+                                Evet
                             </button>
-
+    
                             <button class="btn btn-link p-1" (click)="cancelDeleteConfirm(userBlog)">
-                                No
+                                Hayır
                             </button>
-
+    
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-
+    
     </ng-template>
-
-</div>
+    </div>

@@ -1,1 +1,39 @@
-<p>comment-box çalışıyor!</p>
+<form #commentForm="ngForm" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+        <textarea
+            name="commentContent"
+            #userCommentContent="ngModel"
+            [(ngModel)]="comment.content"
+            [ngClass]="{'is-invalid' : userCommentContent.errors && userCommentContent.touched}"
+            class="form-control mb-3"
+            rows="3"
+            required
+            minlength="10"
+            maxlength="300">
+        </textarea>
+
+        <div *ngIf="!!userCommentContent.errors?.['required']" class="invalid-feedback">
+            Boş bir yorumu kaydedemezsiniz
+        </div>
+        
+        <div *ngIf="!!userCommentContent.errors?.['minlength']" class="invalid-feedback">
+            10-300 karakter arasında olmalıdır
+        </div>
+    </div>
+
+    <button
+        type="submit"
+        class="btn btn-sm btn-primary me-1"
+        [disabled]="!commentForm.form.valid">
+        Kaydet
+    </button>
+
+    
+    <button 
+        type="reset"
+        class="btn btn-sm btn-danger">
+        Sıfırla
+    </button>
+
+</form>
