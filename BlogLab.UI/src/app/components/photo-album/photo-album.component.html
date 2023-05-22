@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="d-flex justify-content-center">
-        <h1 class="display-4 mt-5">Photo Album</h1>
+        <h1 class="display-4 mt-5">Fotoğraflar</h1>
     </div>
 
     <div class="mt-4" [ngClass]="{'photo-album-empty' : photos.length === 0}">
@@ -19,16 +19,16 @@
                         <h3>{{photo.description}}</h3>
 
                         <button class="btn btn-danger mt-3" *ngIf="!photo.deleteConfirm" 
-                            (click)="confirmDelete(photo)">Delete Photo</button>
+                            (click)="confirmDelete(photo)">Fotoğrafı Sil</button>
                         
                         <div class="delete-confirmation ps-2 pe-2 mt-3" *ngIf="!!photo.deleteConfirm">
-                            <span class="text-dark">Sure?</span>
+                            <span class="text-dark">Emin misin ?</span>
 
                             <button class="btn btn-link p-1"
-                                (click)="deleteConfirmed(photo)">Yes</button>
+                                (click)="deleteConfirmed(photo)">Evet</button>
                             
                             <button class="btn btn-link p-1"
-                                (click)="cancelDeleteConfirm(photo)">No</button>
+                                (click)="cancelDeleteConfirm(photo)">Hayır</button>
                         </div>
 
                     </div>

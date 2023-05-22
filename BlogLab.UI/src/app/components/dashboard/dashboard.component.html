@@ -1,17 +1,17 @@
 <div class="container">
 
     <div class="d-flex justify-content-center">
-        <h1 class="display-4 mt-5">Dashboard</h1>
+        <h1 class="display-4 mt-5">Gösterge Paneli</h1>
     </div>
 
     <ng-template #noblogs>
 
         <div class="d-flex justify-content-center">
-            <h3 class="text-dark mt-3">You don't have any blogs yet...</h3>
+            <h3 class="text-dark mt-3">Henüz blogunuz yok...</h3>
         </div>
 
         <button class="btn btn-lg btn-outline-primary mt-4 mb-4" (click)="createBlog()">
-            New Blog
+            Yeni Blog
         </button>
 
     </ng-template>
@@ -19,7 +19,7 @@
     <ng-template [ngIf]="userBlogs.length > 0" [ngIfElse]="noblogs">
         
         <button class="btn btn-lg btn-outline-primary mt-4 mb-4" (click)="createBlog()">
-            New Blog
+            Yeni Blog
         </button>
 
         <table class="table table-hover table-striped">

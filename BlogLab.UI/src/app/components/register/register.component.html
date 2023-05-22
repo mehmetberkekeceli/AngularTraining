@@ -1,5 +1,5 @@
-<h3 class="text-dark">Don't Have An Account?</h3>
-<p class="text-dark">Just fill out the form and register</p>
+<h3 class="text-dark">Hesabınız yok mu ?</h3>
+<p class="text-dark">Sadece formu doldurun ve kaydolun.</p>
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
@@ -10,10 +10,10 @@
                         'is-valid' : !hasErrors('fullname') && isTouched('fullname')}"
             class="form-control form-control-lg"
             formControlName="fullname"
-            placeholder="Full Name">
+            placeholder="İsminiz">
 
         <div *ngIf="hasError('fullname', 'minlength') || hasError('fullname', 'maxlength')" class="invalid-feedback">
-            Must be between 10-30 characters
+            10-30 karakter arasında olmalıdır.
         </div>
     </div>
 
@@ -24,14 +24,14 @@
                         'is-valid' : !hasErrors('username') && isTouched('username')}"
             class="form-control form-control-lg"
             formControlName="username"
-            placeholder="Username">
+            placeholder="Kullanıcı Adınız">
 
         <div *ngIf="hasError('username', 'required')" class="invalid-feedback">
-            Username is required
+            Kullanıcı Adı Zorunlu
         </div>
 
         <div *ngIf="hasError('username', 'minlength') || hasError('username', 'maxlength')" class="invalid-feedback">
-            Must be between 5-20 characters
+            5-20 karakter arasında olmalıdır
         </div>
     </div>
 
@@ -45,15 +45,15 @@
             placeholder="Email">
 
         <div *ngIf="hasError('email', 'required')" class="invalid-feedback">
-            Email is required
+            Email Zorunlu
         </div>
 
         <div *ngIf="hasError('email', 'pattern')" class="invalid-feedback">
-            Invalid email format
+            Geçersiz e-posta formatı
         </div>  
 
         <div *ngIf="hasError('email', 'maxlength')" class="invalid-feedback">
-            Can be at most 30 characters
+            En fazla 30 karakter olabilir
         </div>
     </div>
 
@@ -64,14 +64,14 @@
                         'is-valid' : !hasErrors('password') && isTouched('password')}"
             class="form-control form-control-lg"
             formControlName="password"
-            placeholder="Password">
+            placeholder="Şifreniz">
 
         <div *ngIf="hasError('password', 'required')" class="invalid-feedback">
-            Password is required
+            Şifre zorunlu
         </div>
 
         <div *ngIf="hasError('password', 'minlength') || hasError('password', 'maxlength')" class="invalid-feedback">
-            Must be between 10-50 characters
+            10-50 karakter arasında olmalıdır
         </div>
     </div>
 
@@ -86,18 +86,18 @@
                         && isTouched('confirmPassword')}"
             class="form-control form-control-lg"
             formControlName="confirmPassword"
-            placeholder="Confirm Password">
+            placeholder="Şifreyi Onayla">
 
         <div *ngIf="hasError('confirmPassword', 'required')" class="invalid-feedback">
-            Confirm Password is required
+            Parola onaylama zorunlu
         </div>
 
         <div *ngIf="formHasError('isMatching')" class="invalid-feedback">
-            Passwords do not match
+            Parolalar uyuşmuyor
         </div>
     </div>
 
     <button class="btn btn-block mb-3 bg-primary text-light"
-    [disabled]="!registerForm.valid">Register</button>
+    [disabled]="!registerForm.valid">Kayıt Ol!</button>
 
 </form>

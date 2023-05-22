@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container">
 
-        <a class="navbar-brand" routerLink='/' routerLinkActive='active'>BlogLab</a>
+        <a class="navbar-brand" routerLink='/' routerLinkActive='active'>MBRKCL BLOG</a>
 
         <button class="navbar-toggler"
             data-toggle="collapse"
@@ -16,11 +16,11 @@
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink='/blogs' routerLinkActive='active'>Blogs</a>
+                    <a class="nav-link" routerLink='/blogs' routerLinkActive='active'>Bloglar</a>
                 </li>
 
                 <li class="nav-item" *ngIf="!accountService.isLoggedIn()">
-                    <a class="nav-link" routerLink='/login' routerLinkActive='active'>Login</a>
+                    <a class="nav-link" routerLink='/login' routerLinkActive='active'>Giriş Yap</a>
                 </li>
             </ul>
 
@@ -39,14 +39,14 @@
                 <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu"
                     aria-labelledby="button-animated">
                     <li role="menuitem">
-                        <a class="dropdown-item" routerLink='/photo-album'>Photo Album</a>
+                        <a class="dropdown-item" routerLink='/photo-album'>Fotoğraflar</a>
                     </li>
                     <li role="menuitem">
-                        <a class="dropdown-item" routerLink='/dashboard'>Dashboard</a>
+                        <a class="dropdown-item" routerLink='/dashboard'>Gösterge Paneli</a>
                     </li>
                     <li role="divider dropdown-divider"></li>
                     <li role="menuitem">
-                        <a class="dropdown-item" (click)="logout()">Logout</a>
+                        <a class="dropdown-item" (click)="logout()">Çıkış Yap</a>
                     </li>
                 </ul>
 
