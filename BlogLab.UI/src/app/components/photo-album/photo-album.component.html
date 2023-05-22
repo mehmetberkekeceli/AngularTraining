@@ -40,7 +40,7 @@
 
         <ng-template #nophotos>
             <div class="d-flex justify-content-center">
-                <h3 class="text-dark">You don't have any photos yet...</h3>
+                <h3 class="text-dark">Henüz hiç fotoğrafınız yok...</h3>
             </div>
         </ng-template>
 
@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-4">
                 <div class="mb-3">
-                    <label for="photoDescription">Photo Description</label>
+                    <label for="photoDescription">Fotoğraf açıklaması</label>
                     <input
                         type="text"
                         name="photoDescription"
@@ -58,25 +58,25 @@
                         [(ngModel)]="newPhotoDescription"
                         [ngClass]="{'is-invalid' : userPhotoDescription.errors && userPhotoDescription.touched}"
                         class="form-control"
-                        placeholder="Photo Description"
+                        placeholder="Fotoğraf Açıklaması"
                         required
                         [minlength]="10"
                         [maxlength]="30"
                         >
 
                     <div *ngIf="!!userPhotoDescription.errors?.['required']" class="invalid-feedback">
-                        You can't have an empty photo description
+                        Boş bir fotoğraf açıklamanız olamaz
                     </div>
 
                     <div *ngIf="!!userPhotoDescription.errors?.['minlength']" class="invalid-feedback">
-                        Must be between 10-30 characters
+                        10-30 karakter arasında olmalıdır
                     </div>
                 </div>
             </div>
 
             <div class="col-8">
                 <div class="mb-3">
-                    <label for="file">Add photo to your album</label>
+                    <label for="file">Albümünüze fotoğraf ekleyin</label>
                     <input 
                         type="file"
                         name="photoFile"
@@ -84,11 +84,11 @@
                         (change)="onFileChange($event)" 
                         class="form-control"
                         required>
-                    <small class="form-text text-muted" id="fileHelp">Max 10mb size</small>
+                    <small class="form-text text-muted" id="fileHelp">Maksimum 10mb boyut</small>
                 </div>
 
                 <button class="btn btn-primary" [disabled]="!photoFile || !photoForm.valid">
-                    Upload Image
+                    Fotoğraf yükleniyor
                 </button>
             </div>
         </div>
